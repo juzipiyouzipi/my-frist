@@ -1,0 +1,77 @@
+/* 基本样式 */
+.carousel-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 800px;
+    height: 400px;
+}
+
+/* 左右导航按钮样式 */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    opacity: 0;   /* 初始状态下按钮隐藏 */
+    transition: opacity 0.3s ease; /* 设置按钮的淡入淡出效果 */
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* 鼠标经过轮播图容器时显示左右按钮 */
+.carousel-container:hover button.prev,
+.carousel-container:hover button.next {
+    opacity: 1; /* 鼠标悬停时显示按钮 */
+}
+
+/* 圆点导航样式 */
+.dots-container {
+    position: absolute;
+    bottom: 15px; /* 调整距离底部的高度 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.dots-container .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dots-container .dot.active {
+    background-color: rgba(255, 255, 255, 1); /* 活跃状态下的颜色更亮 */
+}
+
+/* 让图片内的圆点更明显 */
+.carousel-container .dots-container {
+    z-index: 10; /* 确保圆点在图片上方 */
+}
